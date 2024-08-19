@@ -20,7 +20,7 @@ function App() {
 
   const fetchData = async (value) => {
     try {
-        const response = await fetch("./src/data/city.json");
+        const response = await fetch("/city.json");
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
