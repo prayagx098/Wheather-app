@@ -45,7 +45,7 @@ function App() {
 
   const fetchWeather = (cityName) => {
     const apiKey = '1bf7ce9527a44632ab7190306241608';
-    const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityName}`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityName}`;
 
     fetch(url)
       .then((response) => response.json())

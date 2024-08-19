@@ -33,7 +33,7 @@ const Report = () => {
             const fetchWeatherData = async () => {
                 try {
                     const API_KEY = '1bf7ce9527a44632ab7190306241608';
-                    const baseURL = 'http://api.weatherapi.com/v1';
+                    const baseURL = 'https://api.weatherapi.com/v1';
                     const url = `${baseURL}/current.json?key=${API_KEY}&q=${city}`;
                     const response = await fetch(url);
                     const data = await response.json();
