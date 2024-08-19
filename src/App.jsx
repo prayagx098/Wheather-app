@@ -18,21 +18,25 @@ function App() {
 
   const [weatherData, setWeatherData] = useState(null); 
 
-  const fetchData = (value) => {
+  const fetchData = async (value) => {
+    try {
+        const response = await fetch("./src/data/city.json");
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const json = await response.json();
+        const results = json.filter((city) =>
+            city && city.name && city.name.toLowerCase().includes(value)
+        );
+        setResults(results);
+    } catch (error) {
+        console.error("Error fetching local JSON data:", error);
+    }
+};
 
-    fetch("./src/data/city.json")
-    .then((response) => response.json())
-    .then(json => {
-      const results = json.filter((city)=>{
-        return city && city.name && city.name.toLowerCase().includes(value);
-      });
-      setResults(results);
-    })
-    .catch((error) => {
-      console.error('There was a problem with the fetch operation:', error);
-    });
-      
-  }
+  // const fetchData = async (value) => {
+
+
 
   const changeInputValue = (value) => {
     setInput(value);
