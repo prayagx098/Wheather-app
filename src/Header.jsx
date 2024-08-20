@@ -12,7 +12,7 @@ function Header() {
           <MDBNavbarBrand href='#'>
             <img
             className='ms-5'
-              src='./src/assets/pngegg.png'
+              src='./public/pngegg.png'
               height='80'
               alt=''
               loading='lazy'
